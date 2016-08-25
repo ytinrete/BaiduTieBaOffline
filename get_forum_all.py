@@ -6,6 +6,7 @@ import os
 import shutil
 import signal
 import json
+from datetime import datetime
 
 
 def get_forum_list_call(url):
@@ -40,7 +41,9 @@ def get_threads_from_forum_page(url, cookie):
 
 
 if __name__ == '__main__':
-    my_url = ''
-    my_cookie = ''
+    my_cookie = ""
+    my_url = ""
+    print(datetime.now())
     get_forum_list_call(my_url)
     get_threads_from_forum_page(my_url, my_cookie)
+    print(datetime.now())

@@ -149,7 +149,8 @@ def inflate_detail_model_with_list_data(base_info):
 
     card_slogan = html_tree.find('p', class_='card_slogan')
     card_slogan.clear()
-    card_slogan.append(base_info['card_slogan'])
+    if base_info['card_slogan']:
+        card_slogan.append(base_info['card_slogan'])
 
     return html_tree
 
