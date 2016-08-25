@@ -59,6 +59,11 @@ def inflate_detail_model_with_data(base_info):
     title.clear()
     title.append(base_info['title'])
 
+    title_show = html_tree.body.find('h3', class_='core_title_txt')
+    title_show.clear()
+    title_show['title'] = base_info['title'].split('_')[0]
+    title_show.append(base_info['title'].split('_')[0])
+
     card_head_img = html_tree.body.find('img', class_='card_head_img')
     card_head_img['src'] = base_info['card_head_img']
 
