@@ -25,7 +25,7 @@ def req_maker(path):
 def get_response_str(req):
     with r.urlopen(req) as f:
         decompressed_data = zlib.decompress(f.read(), 16 + zlib.MAX_WBITS)
-        return str(decompressed_data, "utf-8")
+        return str(decompressed_data, "utf-8", errors='replace')
 
 
 def get_now_str():
@@ -216,7 +216,7 @@ def get_comment_by_floor(tid, pid):
 
 
 # 获取单个帖子,按页保存,能够哪个页面坏了删掉那一页重新跑就行
-def get_single_thread(tid, fid):
+def get_single_thread(tid, fid, title_check):
     if tid is None or fid is None:
         print('lacking basic info, can not continue!')
         return
@@ -241,6 +241,13 @@ def get_single_thread(tid, fid):
         info = get_thread_basic_info(thread_tid, thread_fid)
         with open(base_dir + 'base_info.json', 'w', encoding='utf-8') as base_info_file:
             base_info_file.write(json.dumps(info))
+
+    if title_check:
+        # 贴吧里面会混入别的贴吧的信息,通过校验title干掉大部分这些恶心的东西
+        if info['title'].find(title_check) == -1:
+            print("fake thread found!!!")
+            shutil.rmtree(thread_tid)
+            return True
 
     # 构造模版,并填充基本数据
     print('3.inflate model with info')
