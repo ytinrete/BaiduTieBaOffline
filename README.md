@@ -10,11 +10,22 @@ python贴吧爬虫玩具，把整个贴吧html（除了我认为不需要的，�
 你也可以在保证selenium＋PhantomJS和登陆cookie的情况下直接传一个贴吧首页地址，它能把整个贴吧爬下来，之后大概长这样(杰钢队长吧为例):
 
 列表页:
-
+页头
+![image](https://github.com/ytinrete/BaiduTieBaOffline/raw/master/show_pic/l1.png)
+页尾巴
+![image](https://github.com/ytinrete/BaiduTieBaOffline/raw/master/show_pic/l2.png)
+第二页头
+![image](https://github.com/ytinrete/BaiduTieBaOffline/raw/master/show_pic/l3.png)
 
 详情页:
+头部
+![image](https://github.com/ytinrete/BaiduTieBaOffline/raw/master/show_pic/d1.png)
+评论也被爬下来的，但是没有分页，直接有多少贴多少这样
+![image](https://github.com/ytinrete/BaiduTieBaOffline/raw/master/show_pic/d2.png)
 
 (本来想拿一两页样本放git上不过两页就100+M。。。,因为包括所有帖子内容,这么大不奇怪,所以还是算了)
+
+## (我只是随便选取的页面,要是你是其中某人而不想被帖在这些图里,给我发邮件立即就删)
 
 无论是列表模块还是详情模块都能根据已知的进度继续爬,所以要是出错了删掉最新的那一页,再继续运行就好,对于要爬整个贴吧还有问题,我请求的时候是不带时间参数的,若是很活跃的贴吧估计帖子数可能会有出入,重复,少掉等这些都不好说,这一部分要优化还得做一些工作,但是我没有这样的需求呀
 
