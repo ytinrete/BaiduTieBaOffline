@@ -821,5 +821,10 @@ img {
 .red_text, .red-text, .vip_red, .vip-red, .vip_red:hover, .vip-red:hover, .vip_red:visited, .vip-red:visited {
     color: #f74d4a!important;
 }
+.pagination-default .pagination-current {
+    background: #fff;
+    color: #3e89fa;
+    border: 1px solid transparent;
+}
 
 
