@@ -70,9 +70,9 @@ def get_threads_from_forum_page(url, cookie):
 
 
 if __name__ == '__main__':
-    my_cookie = "BAIDUID=1EA1D52D7B28CC07BE2DF39ADF37CCDA:FG=1; TIEBA_USERTYPE=e7d5aa4ed3bd6481d6d4934a; bdshare_firstime=1471439905469; PSTM=1471440014; BIDUPSID=1EA1D52D7B28CC07BE2DF39ADF37CCDA; IS_NEW_USER=aa1333218b3ff02296140f74; CLIENTWIDTH=550; CLIENTHEIGHT=1879; app_open=1; bdps_login_cookie=1; pb_prompt=1; SEENKW=iur_li; SET_PB_IMAGE_WIDTH=436; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; BDUSS=pwdE42azRNam9oaGZwckNJR1E5d1pCUUxvSVZOa2p-VjJmUHVpR3hBeEk3ZHhYQVFBQUFBJCQAAAAAAAAAAAEAAAAJHzMmxOrEt8Cty7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEhgtVdIYLVXSX; H_PS_PSSID=20742_1469_18280_17949_18133_17001_11536_20697_20857_20836_20771_20781; TIEBAUID=e7d5aa4e52fee3f0d6d493bb; LONGID=640884489; wise_device=0;"
-    my_url = "http://tieba.baidu.com/f?ie=utf-8&kw=%E6%9D%B0%E9%92%A2%E9%98%9F%E9%95%BF"
+    my_cookie = ""
+    my_url = ""
     print(datetime.now())
-    # get_forum_list_call(my_url)
+    get_forum_list_call(my_url)
     get_threads_from_forum_page(my_url, my_cookie)
     print(datetime.now())
