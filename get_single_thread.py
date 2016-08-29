@@ -39,7 +39,7 @@ def prepare_folder(tid):
     try:
         os.makedirs(tid)
     except FileExistsError or OSError:
-        print('FileExists or OSError return')
+        print('!!!--error--!!! FileExists or OSError return')
         return
     shutil.copytree('model/res', tid + '/res')
 
@@ -95,7 +95,7 @@ def get_and_save_src(path, save_path):
             with open(save_path, 'wb') as wf:
                 wf.write(f.read())
     except BaseException:
-        print('error on donwload:', path)
+        print('!!!--error--!!! error on download img src:', path)
 
 
 def get_thread_basic_info(t_tid, t_fid):
@@ -223,7 +223,7 @@ def get_comment_by_floor(tid, pid):
 # 获取单个帖子,按页保存,能够哪个页面坏了删掉那一页重新跑就行
 def get_single_thread(tid, fid, title_check):
     if tid is None or fid is None:
-        print('lacking basic info, can not continue!')
+        print('!!!--error--!!! lacking basic info, can not continue!')
         return
 
     thread_tid = tid
@@ -325,9 +325,9 @@ def get_single_thread(tid, fid, title_check):
                         num = int(a_node.string)
                         a_node['href'] = str(num) + '.html'
                     except TypeError:
-                        print('TypeError:' + a_node.prettify())
+                        print('!!!--error--!!! TypeError:' + a_node.prettify())
                     except ValueError:
-                        print('unknow page:' + a_node.string)
+                        print('!!!--error--!!! unknow page:' + a_node.string)
             thread_theme_5.append(l_thread_info_up)
 
             print('dealing with down index ' + str(page))
@@ -349,9 +349,9 @@ def get_single_thread(tid, fid, title_check):
                         num = int(a_node.string)
                         a_node['href'] = str(num) + '.html'
                     except TypeError:
-                        print('TypeError:' + a_node.prettify())
+                        print('!!!--error--!!! TypeError:' + a_node.prettify())
                     except ValueError:
-                        print('unknow page:' + a_node.string)
+                        print('!!!--error--!!! unknow page:' + a_node.string)
             thread_theme_7.append(l_thread_info_down)
 
             print('clear thread_recommend ad ' + str(page))

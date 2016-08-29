@@ -17,7 +17,7 @@ def prepare_home_base_dir(home_base_dir):
     try:
         os.makedirs(home_base_dir)
     except FileExistsError or OSError:
-        print('FileExists or OSError return')
+        print('!!!--error--!!! FileExists or OSError return')
         return
     shutil.copytree('model/res', home_base_dir + '/res')
 
@@ -34,7 +34,7 @@ def get_and_save_src(path, save_path):
             with open(save_path, 'wb') as wf:
                 wf.write(f.read())
     except BaseException:
-        print('error on donwload:', path)
+        print('!!!--error--!!! error on download img src:', path)
 
 
 def get_info_from_query(url, key):
@@ -161,7 +161,7 @@ def inflate_detail_model_with_list_data(base_info):
 def get_forum_list(base_url):
     quote_base_dir = get_info_from_query(base_url, 'kw')
     if quote_base_dir is None:
-        print('fatal error, can not find forum name!')
+        print('!!!--error--!!! fatal error, can not find forum name!')
         return
     else:
         base_dir = unquote(unquote(quote_base_dir))
@@ -256,7 +256,7 @@ def get_forum_list(base_url):
 
                 except BaseException:
                     # 解析帖子列表的时候会混进很多奇怪的东西,不管
-                    print('enconter an exception but it is expected')
+                    print('!!!--error--!!! enconter an exception but it is expected')
 
             # 保存列表中的详情id数据
             thread_id_data = {}
@@ -283,9 +283,9 @@ def get_forum_list(base_url):
                         num = int(pagination_item.string)
                         pagination_item['href'] = str(num) + '.html'
                     except TypeError:
-                        print('TypeError:' + pagination_item.prettify())
+                        print('!!!--error--!!! TypeError:' + pagination_item.prettify())
                     except ValueError:
-                        print('unknow page:' + pagination_item.string)
+                        print('!!!--error--!!! unknow page:' + pagination_item.string)
 
             thread_list_bottom.replace_with(thread_list_bottom_data)
 
@@ -316,7 +316,7 @@ def get_forum_list(base_url):
                             count += 1
                             download_list[src_str] = link_path
                 except BaseException:
-                    print('invalid img tag!')
+                    print('!!!--error--!!! invalid img tag!')
             download_list.clear()
 
             # 完成,输出
