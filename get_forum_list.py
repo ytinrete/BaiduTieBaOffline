@@ -256,7 +256,7 @@ def get_forum_list(base_url):
 
                 except BaseException:
                     # 解析帖子列表的时候会混进很多奇怪的东西,不管
-                    print('!!!--error--!!! enconter an exception but it is expected')
+                    print('enconter an exception but it is expected')
 
             # 保存列表中的详情id数据
             thread_id_data = {}
